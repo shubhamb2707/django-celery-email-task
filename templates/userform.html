@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>CIS-task</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="offset-md-3 column-6">
-            <form method="POST">
-                {% csrf_token %}
-                {{user_form}} <br>
-                <center>
-                    <input type="submit" value="Submit" class="btn btn-success">
-                </center>
-            </form>
-        </div>
-    </div>
-</body>
-
-</html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block bodyblock %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        <br>
+        <center>
+            <input type="submit" value="Submit" class="btn btn-success">
+        </center>
+    </form>
+{% endblock %}
